@@ -1,3 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="model.Usuario"  %>
+
+<% 	
+	Usuario usuario = (Usuario) request.getAttribute("usuario");
+%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -32,7 +40,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion no-print" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="ControllerNovaAposta?action=dashboard&id=<%= usuario.getId() %>">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -44,7 +52,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="dashboard.html">
+        <a class="nav-link" href="ControllerNovaAposta?action=dashboard&id=<%= usuario.getId() %>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -59,13 +67,13 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="novaaposta.html">
+        <a class="nav-link" href="ControllerNovaAposta?action=novaaposta&user=<%=usuario.getId()%>">
           <i class="fas fa-fw fa-cube"></i>
           <span>Nova Aposta</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="apostas.html">
+        <a class="nav-link" href="ControllerApostas?id=<%=usuario.getId()%>">
           <i class="fas fa-fw fa-cubes"></i>
           <span>Apostas</span></a>
       </li>
@@ -160,7 +168,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Nome Usuario</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=usuario.getNome() %></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -258,13 +266,13 @@
 
                 </div>
                 <div class="card-footer text-center">
-                  <a href="novaaposta.html" class="btn btn-primary btn-icon-split btn-lg mt-3 mb-3 mr-4">
+                  <a href="ControllerNovaAposta?action=novaaposta&user=<%=usuario.getId()%>" class="btn btn-primary btn-icon-split btn-lg mt-3 mb-3 mr-4">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>
                     <span class="text">Nova Aposta</span>
                   </a>
-                  <a href="apostas.html" class="btn btn-info btn-icon-split btn-lg mt-3 mb-3">
+                  <a href="ControllerApostas?id=<%=usuario.getId()%>" class="btn btn-info btn-icon-split btn-lg mt-3 mb-3">
                     <span class="icon text-white-50">
                       <i class="fas fa-cubes"></i>
                     </span>
@@ -312,12 +320,12 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Realmente deseja sair?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
+            <span aria-hidden="true">x</span>
           </button>
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="index.html">Sair</a>
+          <a class="btn btn-primary" href="deslogar.jsp">Sair</a>
         </div>
       </div>
     </div>

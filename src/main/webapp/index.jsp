@@ -1,3 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+
+<%if(request.getAttribute("msg") != null){%>
+	<%= request.getAttribute("msg") %>
+<%}%>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,7 +29,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
   <!--CSS adicional-->
-  <link rel="stylesheet" href="css/style.css">
+  <link href="css/style.css" rel="stylesheet" >
 
 </head>
 
@@ -40,12 +49,12 @@
               <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
               <div class="col-lg-6">
                 <div class="p-5">
-                  <form class="user" action="dashboard.html">
+                  <form class="user" action="ControllerLogin" method="post">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email" required>
+                      <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email" required>
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha" required>
+                      <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha" required>
                     </div>
                     <button class="btn btn-primary btn-user btn-block">
                       Login

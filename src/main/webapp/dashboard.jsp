@@ -1,3 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="model.Usuario"  %>
+
+<% 	
+	if(session.getAttribute("sessaoUser") == null){
+		response.sendRedirect("index.jsp");
+	}
+	Usuario usuario = (Usuario) request.getAttribute("usuario");
+	
+%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -33,7 +45,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion no-print" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#page-top">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -45,7 +57,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="dashboard.html">
+        <a class="nav-link" href="#page-top">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -60,13 +72,13 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="novaaposta.html">
+        <a class="nav-link" href="ControllerNovaAposta?action=novaaposta&user=<%=usuario.getId()%>">
           <i class="fas fa-fw fa-cube"></i>
           <span>Nova Aposta</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="apostas.html">
+        <a class="nav-link" href="ControllerApostas?id=<%=usuario.getId()%>">
           <i class="fas fa-fw fa-cubes"></i>
           <span>Apostas</span></a>
       </li>
@@ -142,7 +154,9 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Nome Usuario</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                	<%=usuario.getNome() %>
+                </span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -174,7 +188,7 @@
           </div>
 
           <div class="d-sm-flex align-items-center justify-content-center mb-4 only-print">
-            <h1 class="h3 mb-0 text-gray-800">Relatório Resumo de Apostas</h1>
+            <h1 class="h3 mb-0 text-gray-800">Relatário Resumo de Apostas</h1>
           </div>
 
           <!-- Content Row -->
@@ -361,13 +375,13 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Deseja realmente Sair?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
+            <span aria-hidden="true">x</span>
           </button>
         </div>
         
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="index.html">Sair</a>
+          <a class="btn btn-primary" href="deslogar.jsp">Sair</a>
         </div>
       </div>
     </div>
