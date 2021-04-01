@@ -9,4 +9,54 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ControllerLogin</display-name>
+    <servlet-name>ControllerLogin</servlet-name>
+    <servlet-class>controller.ControllerLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerLogin</servlet-name>
+    <url-pattern>/ControllerLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControllerNovaAposta</display-name>
+    <servlet-name>ControllerNovaAposta</servlet-name>
+    <servlet-class>controller.ControllerNovaAposta</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerNovaAposta</servlet-name>
+    <url-pattern>/ControllerNovaAposta</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControllerDashboard</display-name>
+    <servlet-name>ControllerDashboard</servlet-name>
+    <servlet-class>controller.ControllerDashboard</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerDashboard</servlet-name>
+    <url-pattern>/ControllerDashboard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControllerApostas</display-name>
+    <servlet-name>ControllerApostas</servlet-name>
+    <servlet-class>controller.ControllerApostas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerApostas</servlet-name>
+    <url-pattern>/ControllerApostas</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControllerResultado</display-name>
+    <servlet-name>ControllerResultado</servlet-name>
+    <servlet-class>controller.ControllerResultado</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerResultado</servlet-name>
+    <url-pattern>/ControllerResultado</url-pattern>
+  </servlet-mapping>
 </web-app>

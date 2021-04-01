@@ -81,6 +81,35 @@ public class UsuarioDao{
 		return false;
 	}
 	
+	public boolean buscarUsuarioEmail() {
+		//Buscar todos os atribustos de um usuário
+		String sql = "select * from usuarios where email = ? ;";
+		
+		try {
+			
+			//setando valores na query
+			PreparedStatement statement = conexao.prepareStatement(sql);
+			statement.setString(1, this.user.getEmail());
+			statement.executeQuery();
+			
+			//capturando resultado da query
+			ResultSet result = statement.getResultSet();
+			
+			
+			while(result.next()) {
+				//Caso ele esteja no BD busca as demais informações do usuario
+				this.user.setId(result.getInt("id"));
+				this.user.setNome(result.getString("nome"));
+				this.user.setSenha(result.getString("senha"));
+				
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return false;
+	}
 
 	public void closeConexao() throws SQLException {
 		this.conexao.close();

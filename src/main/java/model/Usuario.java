@@ -12,6 +12,10 @@ public class Usuario {
 	private String nome;
 	
 	
+	public Usuario(){
+		
+	}
+	
 	public Usuario(int id, String email, String senha) {
 		
 		this.id = id;
@@ -77,5 +81,11 @@ public class Usuario {
 		return auth;
 	}
 	
+	public boolean buscarUserSessao() throws SQLException {
+		UsuarioDao userDao = new UsuarioDao(this);
+		boolean auth = userDao.buscarUsuarioEmail();
+		userDao.closeConexao();
+		return auth;
+	}
 	
 }

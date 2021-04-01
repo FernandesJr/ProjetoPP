@@ -1,3 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Chango&family=Dela+Gothic+One&display=swap');
+/*font-family: 'Dela Gothic One', cursive;*/
+/*font-family: 'Chango', cursive;*/
+/*color: rgb(21, 211, 201);*/
+
+.tit-pri{
+    /*Titulo principal*/
+    font-family: 'Chango', cursive;
+    color: rgb(21, 211, 201);
+    margin-top: 20px;
+}
+
+.footer-seg{
+    color: rgb(133, 125, 125);
+}
+
+.footer-pri p a{
+    color: white;
+    text-decoration: none;
+}
+
+footer{
+    color: white;
+}
+
+
 .card-footer{
     background-color: white;
 }
