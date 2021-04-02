@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Aposta;
 import model.Usuario;
 
 /**
@@ -45,7 +47,17 @@ public class ControllerApostas extends HttpServlet {
 		//Validando se a sessao e usuario estão de acordo
 		
 		if(sessao != null && sessao.equals(usuario.getEmail())) {
+			
+			//Buscando apostas do usuário
+			ArrayList<Aposta> apostas = null;
+			try {
+				apostas = usuario.buscarApostas();
+			} catch (SQLException e) {
+				System.out.println("Não consigui buscar apostas no bd" +e);
+			}			
+			
 			request.setAttribute("usuario", usuario);
+			request.setAttribute("apostas", apostas);
 			RequestDispatcher rd = request.getRequestDispatcher("apostas.jsp");
 			rd.forward(request, response);
 		}else {

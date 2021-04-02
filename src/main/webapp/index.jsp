@@ -60,7 +60,7 @@
                       Login
                     </button>
                     <hr>
-                    <a href="register.html" class="btn btn-google btn-user btn-block">
+                    <a href="#" class="btn btn-google btn-user btn-block">
                       Cadastrar
                     </a>
                   </form>

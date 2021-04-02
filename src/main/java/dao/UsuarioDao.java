@@ -4,8 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Locale;
 
-
+import model.Aposta;
 import model.Usuario;
 
 public class UsuarioDao{
@@ -110,6 +115,54 @@ public class UsuarioDao{
 		}
 		return false;
 	}
+	
+	public ArrayList<Aposta> apostasUsuario(){
+		ArrayList<Aposta> list = new ArrayList<Aposta>();
+		
+		String sql = "select * from apostas where id_usuario = ? ;";
+		
+		try {
+			
+			//setando valores na query
+			PreparedStatement statement = conexao.prepareStatement(sql);
+			statement.setInt(1, this.user.getId());
+			statement.executeQuery();
+			
+			//capturando resultado da query
+			ResultSet result = statement.getResultSet();
+			
+			
+			while(result.next()) {
+				//Buscando apostas associado ao usuário
+				Aposta aposta = new Aposta();
+				
+				aposta.setId(result.getInt("id_aposta"));
+				aposta.setValor(result.getDouble("valor"));
+				aposta.setSorteados(result.getString("num_sorteados"));
+				aposta.setEscolhidos(result.getString("num_escolhidos"));
+				aposta.setEscolhidos(result.getString("num_escolhidos"));
+				
+				//Caputando data e convertendo para string
+				//CAPTURANDO UM TIMESTAMP DATA E HORA NO MESMO ATRIBUTO DO BANCO DE DADOS
+                Timestamp dataHoraDB  = result.getTimestamp("data");
+                SimpleDateFormat formatada = new SimpleDateFormat("dd/MM/yyyy",  new Locale("pt", "BR"));
+                
+                String horaData = formatada.format(dataHoraDB);
+				
+				aposta.setData(horaData);
+				aposta.setLucroUser(result.getDouble("ganho_usuario"));
+				
+				list.add(aposta);	
+			}
+			
+		}catch (SQLException e) {
+			System.out.println(e);
+		}
+		
+		
+		return list;
+	}
+		
 
 	public void closeConexao() throws SQLException {
 		this.conexao.close();

@@ -12,6 +12,11 @@ public class Aposta {
 	private double valor;
 	private double lucroUser;
 	private int acertos = 0;
+	private int id;
+	//Vem do BD em formato String
+	private String sorteados;
+	private String escolhidos;
+	private String data;
 	
 	
 	
@@ -175,6 +180,39 @@ public class Aposta {
 	public void setAcertos(int acertos) {
 		this.acertos = acertos;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getSorteados() {
+		return sorteados;
+	}
+
+	public void setSorteados(String sorteados) {
+		this.sorteados = sorteados;
+	}
+
+	public String getEscolhidos() {
+		return escolhidos;
+	}
+
+	public void setEscolhidos(String escolhidos) {
+		this.escolhidos = escolhidos;
+	}
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+	
 	
 	
 }

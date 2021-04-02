@@ -189,7 +189,7 @@
               <form action="ControllerNovaAposta" method="post">
 	              <div class="card shadow mb-4 card-novaaposta mx-auto">
 	                <div class="card-header py-3">
-	                  <h6 class="m-0 font-weight-bold text-primary text-center">Selecione os ( 5 ) Numeros da Cartela</h6>
+	                  <h6 class="m-0 font-weight-bold text-primary text-center">Selecione os <strong>( 5 )</strong> Números da Cartela</h6>
 	                </div>
 	                <div class="card-body">
 	

@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import dao.UsuarioDao;
 
@@ -86,6 +87,13 @@ public class Usuario {
 		boolean auth = userDao.buscarUsuarioEmail();
 		userDao.closeConexao();
 		return auth;
+	}
+	
+	public ArrayList<Aposta> buscarApostas() throws SQLException{
+		UsuarioDao userDao = new UsuarioDao(this);
+		ArrayList<Aposta> apostas = userDao.apostasUsuario();
+		userDao.closeConexao();
+		return apostas;
 	}
 	
 }

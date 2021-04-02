@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="model.Usuario"  %>
+<%@ page import="model.Aposta"  %>
+<%@ page import="java.util.ArrayList"  %>
 
 <% 	
 	Usuario usuario = (Usuario) request.getAttribute("usuario");
-	
+	ArrayList<Aposta> apostas = (ArrayList<Aposta>) request.getAttribute("apostas");
 %>
 
 <!DOCTYPE html>
@@ -188,39 +190,35 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Id</th>
+                      <th>Código</th>
+                      <th>Valor</th>
+                      <th>Num_sorteados</th>
+                      <th>Num_escolhidos</th>
                       <th>Data</th>
-                      <th>Erros</th>
-                      <th>Acertos</th>
                       <th>Ganhos</th>
-                     
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Id</th>
+                      <th>Código</th>
+                      <th>Valor</th>
+                      <th>Num_sorteados</th>
+                      <th>Num_escolhidos</th>
                       <th>Data</th>
-                      <th>Erros</th>
-                      <th>Acertos</th>
                       <th>Ganhos</th>
-                      
                     </tr>
                   </tfoot>
                   <tbody>
+                  	<%for(Aposta aposta : apostas){ %>
                     <tr>
-                      <td>1</td>
-                      <td>31/07/2020</td>
-                      <td>3</td>
-                      <td>12</td>
-                      <td>R$ 2.000,00</td> 
+                      <td><%=aposta.getId() %></td>
+                      <td>R$ <%=aposta.getValor() %></td>
+                      <td><%=aposta.getSorteados() %></td>
+                      <td><%=aposta.getEscolhidos() %></td>
+                      <td><%=aposta.getData() %></td>
+                      <td>R$ <%=aposta.getLucroUser() %></td> 
                     </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>29/07/2020</td>
-                      <td>5</td>
-                      <td>10</td>
-                      <td>R$ 2,00</td>
-                    </tr>                  
+                    <%}%>                
                   </tbody>
                 </table>
               </div>
