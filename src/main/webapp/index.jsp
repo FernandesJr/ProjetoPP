@@ -60,7 +60,7 @@
                       Login
                     </button>
                     <hr>
-                    <a href="#" class="btn btn-google btn-user btn-block">
+                    <a href="cadastrarUser.jsp" class="btn btn-google btn-user btn-block">
                       Cadastrar
                     </a>
                   </form>

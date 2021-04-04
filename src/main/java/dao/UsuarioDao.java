@@ -162,6 +162,26 @@ public class UsuarioDao{
 		
 		return list;
 	}
+	
+	public void cadastraUser() {
+		
+		String sql = "insert into usuarios (email,senha,nome) values (?,?,?);";
+		
+		try {
+			
+			PreparedStatement statement = conexao.prepareStatement(sql);
+			statement.setString(1, this.user.getEmail());
+			statement.setString(2, this.user.getSenha());
+			statement.setString(3, this.user.getNome());
+			statement.execute();
+			System.out.println("UsuarioDao.cadastraUser()");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 		
 
 	public void closeConexao() throws SQLException {

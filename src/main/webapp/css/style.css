@@ -3,6 +3,13 @@
 /*font-family: 'Chango', cursive;*/
 /*color: rgb(21, 211, 201);*/
 
+.check-senha{
+    /*Check box do cadastar ou Update*/
+    position: absolute !important;
+    margin-top: 13px !important;
+    
+}
+
 .tit-pri{
     /*Titulo principal*/
     font-family: 'Chango', cursive;

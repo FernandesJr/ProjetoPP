@@ -96,4 +96,10 @@ public class Usuario {
 		return apostas;
 	}
 	
+	public void cadastarUsuario() throws SQLException {
+		UsuarioDao userDao = new UsuarioDao(this);
+		userDao.cadastraUser();
+		userDao.closeConexao();
+	}
+	
 }
