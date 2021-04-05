@@ -10,6 +10,10 @@
 	
 %>
 
+<%if(request.getAttribute("msg") != null){%>
+	<%= request.getAttribute("msg") %>
+<%}%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -161,7 +165,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="ControllerEditarUser?id=<%=usuario.getId()%>">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Perfil
                 </a> 

@@ -1,29 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="model.Usuario"  %>
-<%@ page import = "java.util.ArrayList" %>
+<%@ page import = "model.Usuario" %>
 
-<% 	
-	Usuario usuario = (Usuario) request.getAttribute("usuario");
-	
-	ArrayList<String> sorteados = (ArrayList<String>)request.getAttribute("numSorteados");
-	ArrayList<String> escolhidos = (ArrayList<String>)request.getAttribute("numEscolhidos");
-	
+<%if(request.getAttribute("msg") != null){%>
+	<%= request.getAttribute("msg") %>
+<%}%>
 
-	String ganho = (String) request.getAttribute("ganho");
-	String acertos = (String) request.getAttribute("acertos");
-	String erros = (String) request.getAttribute("erros");
-	String idAposta = (String) request.getAttribute("idAposta");
-	
-	
-%>
+<% Usuario usuario = (Usuario) request.getAttribute("usuario");%>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
 
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -40,6 +31,7 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/print-dashboard.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
@@ -185,10 +177,6 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="ControllerEditarUser?id=<%=usuario.getId()%>">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Perfil
-                </a> 
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -206,105 +194,51 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800 text-center">Resultado</h1>
+          <h1 class="h3 mb-4 text-gray-800 text-center">Configurações do Usuário</h1>
           <div class="row">
-            <div class="col-12">
-
-              <!-- Basic Card Example -->
-              <div class="card shadow mb-4 card-novaaposta mx-auto">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary text-center">Confira quais números foram sorteados</h6>
-                </div>
-                <div class="card-body">
-
-
-                  <div class="row">
-                    <div class="col-md-12 numeros">
-                      <h2>Números Sorteados</h2>
-                      <% for(String n: sorteados){ %>
-                      <span class="badge badge-pill badge-primary p-3 text-lg"><%=n%></span>
-                      <%}%>
-                      <!--
-                      <span class="badge badge-pill badge-primary p-3 text-lg">3</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">4</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">5</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">8</span> 
-                      <span class="badge badge-pill badge-primary p-3 text-lg">10</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">11</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">13</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">15</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">16</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">18</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">20</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">22</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">24</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">25</span>  -->
-                    </div>
-                  </div>
-
-                  <div class="row mt-5">
-                    <div class="col-md-12 numeros">
-                      <h2>Sua Aposta</h2>
-                      
-                      
-                      <% for(String n: escolhidos){ %>
-                      <%=n%>
-                      <%}%>
-                      
-                      <!--
-                      span class="badge badge-pill badge-danger p-3 text-lg">1</span>
-                      <span class="badge badge-pill badge-danger p-3 text-lg">2</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">3</span>
-                      <span class="badge badge-pill badge-danger p-3 text-lg">6</span>
-                      <span class="badge badge-pill badge-danger p-3 text-lg">7</span> 
-                      <span class="badge badge-pill badge-danger p-3 text-lg">9</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">11</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">13</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">16</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">18</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">20</span>
-                      <span class="badge badge-pill badge-danger p-3 text-lg">21</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">22</span>
-                      <span class="badge badge-pill badge-danger p-3 text-lg">23</span>
-                      <span class="badge badge-pill badge-primary p-3 text-lg">24</span> -->
-                    </div>
-                  </div>
-
-
-                  <div class="row mt-3">
-                    <div class="col-md-6 d-flex align-items-center justify-content-center">
-                      <div>
-                        <h4>Codigo Aposta: <strong><%=idAposta%></strong></h4>
-                        <h4>Erros: <strong><%=erros%></strong></h4>
-                        <h4>Acertos: <strong><%=acertos%></strong></h4>
-                        <h4>Ganhos: <strong>R$ <%=ganho%></strong></h4>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <img class="imagem-novaaposta img-fluid" alt="dinheiro"
-                        src="img/cadastrar-fundo.png">
-                    </div>
-                  </div>
-
-                </div>
-                <div class="card-footer text-center">
-                  <a href="ControllerNovaAposta?action=novaaposta&user=<%=usuario.getId() %>" class="btn btn-primary btn-icon-split btn-lg mt-3 mb-3 mr-4">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-plus"></i>
-                    </span>
-                    <span class="text">Nova Aposta</span>
-                  </a>
-                  <a href="ControllerApostas?id=<%=usuario.getId() %>" class="btn btn-info btn-icon-split btn-lg mt-3 mb-3">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-cubes"></i>
-                    </span>
-                    <span class="text">Ver Apostas</span>
-                  </a>
-                </div>
-              </div>
-              <!-- Fim card-->
-
+            <!--adicionado-->
+            <div class="col-lg-5 d-none d-lg-block"> <!--bg-register-image-->
+              <img src="img/updateUser450.png" alt="">
             </div>
+          <div class="col-lg-7">
+            <div class="p-5">
+
+              <form class="user" action="ControllerEditarUser" method="post">
+              	<div class="form-group only-print" id="id-user" >
+                  <input name="id"  type="" class="form-control form-control-user" id="id-user" value="<%=usuario.getId()%>" readonly>
+                </div>
+                <div class="form-group">
+                  <input name="nome"  type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome" value="<%=usuario.getNome()%>">
+                </div>
+                <div class="form-group">
+                  <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email" value="<%=usuario.getEmail()%>">
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha" value="<%=usuario.getSenha()%>">
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="check-senha">
+                      <input type="checkbox" class="" id="exampleRepeatPassword">
+                      mostrar senha
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                  Confirmar Alterações
+                </button>   
+    			
+    			<!-- Botão excluir usuário -->
+    			<hr>
+    			<label>Cuidado área de risco, uma vez excluído não poderá recuperar nenhuma informação.</label>
+    			<a href="#" class="btn btn-danger btn-user btn-block text-center" data-toggle="modal" data-target="#logoutModalExcluir">
+                  	Excluir Usuário
+              	</a>
+              	<hr>
+
+              </form>
+              
+              
           </div>
 
         </div>
@@ -348,6 +282,25 @@
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
           <a class="btn btn-primary" href="deslogar.jsp">Sair</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Logout Modal EXCLUIR USER-->
+  <div class="modal fade" id="logoutModalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Realmente deseja EXCLUIR seu usuário?  :(</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">x</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="button" data-dismiss="modal">Cancelar</button>
+          <a class="btn btn-danger" href="ControllerEditarUser?action=del&id=<%=usuario.getId()%>">Sim</a>
         </div>
       </div>
     </div>

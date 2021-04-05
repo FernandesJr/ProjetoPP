@@ -102,4 +102,17 @@ public class Usuario {
 		userDao.closeConexao();
 	}
 	
+	public boolean updateUsuario()  throws SQLException{
+		UsuarioDao userDao = new UsuarioDao(this);
+		boolean atualizado = userDao.updateUser();
+		userDao.closeConexao();
+		return atualizado;
+	}
+	
+	public void excluirUsuario() throws SQLException {
+		UsuarioDao userDao = new UsuarioDao(this);
+		userDao.deleteUser();
+		userDao.closeConexao();
+	}
+	
 }

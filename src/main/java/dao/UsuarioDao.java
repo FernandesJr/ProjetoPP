@@ -182,8 +182,110 @@ public class UsuarioDao{
 		
 		
 	}
+	
+	public boolean updateUser() {
+		//Buscar todos os atribustos de um usuário
+		String sql = "select * from usuarios where id = ? ;";
 		
-
+		try {
+			
+			//setando valores na query
+			PreparedStatement statement = conexao.prepareStatement(sql);
+			statement.setInt(1, this.user.getId());
+			statement.executeQuery();
+			
+			//capturando resultado da query
+			ResultSet result = statement.getResultSet();
+			
+			String email = "";
+			while(result.next()) {
+				
+				email = result.getString("email");
+			}
+			
+			boolean emailEncontrado = this.buscarUsuarioEmail(this.user.getEmail());
+			if(email.equals(this.user.getEmail()) || emailEncontrado == false) {
+				
+				this.update();
+				return true;
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return false;
+		
+	}
+	
+	private void update() throws SQLException {
+		
+		
+		String sql = "update usuarios set email = ?, nome = ?, senha = ? where id = ?;";
+		
+		PreparedStatement statement = conexao.prepareStatement(sql);
+		statement.setString(1, this.user.getEmail());
+		statement.setString(2, this.user.getNome());
+		statement.setString(3, this.user.getSenha());
+		statement.setInt(4, this.user.getId());
+		statement.execute();
+	}
+	
+	//UTILIZEI O POLIMORFISMO SOBRECARGA
+	private boolean buscarUsuarioEmail(String email) {
+		//Buscar todos os atribustos de um usuário
+		String sql = "select * from usuarios where email = ? ;";
+		
+		try {
+			
+			//setando valores na query
+			PreparedStatement statement = conexao.prepareStatement(sql);
+			statement.setString(1, email);
+			statement.executeQuery();
+			
+			//capturando resultado da query
+			ResultSet result = statement.getResultSet();
+			
+			
+			while(result.next()) {
+				
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+		
+	public void deleteUser() {
+		
+		String sql = "delete from apostas where id_usuario = ?";
+		try {
+			
+			PreparedStatement statement = conexao.prepareStatement(sql);
+			statement.setInt(1, this.user.getId());
+			statement.execute();
+			
+		} catch (SQLException e) {
+			System.out.println("Não consegui excluir as apostas do usuario"+e);
+		}
+		
+		String sql2 = "delete from usuarios where id = ?";
+		try {
+			
+			PreparedStatement statement2 = conexao.prepareStatement(sql2);
+			statement2.setInt(1, this.user.getId());
+			statement2.execute();
+			
+		} catch (SQLException e) {
+			System.out.println("Não consegui excluir o usuario"+e);
+		}
+	}
+	
+	
+	
 	public void closeConexao() throws SQLException {
 		this.conexao.close();
 	}
