@@ -208,21 +208,29 @@
                   <input name="id"  type="" class="form-control form-control-user" id="id-user" value="<%=usuario.getId()%>" readonly>
                 </div>
                 <div class="form-group">
-                  <input name="nome"  type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome" value="<%=usuario.getNome()%>">
+                  <input name="nome"  type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nome" value="<%=usuario.getNome()%>" required>
                 </div>
                 <div class="form-group">
-                  <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email" value="<%=usuario.getEmail()%>">
+                  <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email" value="<%=usuario.getEmail()%>" required>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha" value="<%=usuario.getSenha()%>">
+                    <input name="senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha" value="<%=usuario.getSenha()%>" required>
                   </div>
+                  <div class="form-group">
+					<div class="custom-control custom-checkbox small">
+						<input type="checkbox" class="custom-control-input" id="customCheck" onclick="mostarsenha()">
+						<label class="custom-control-label" for="customCheck">Mostrar senha </label>
+					</div>
+				 </div>
+                  <!-- 
                   <div class="col-sm-6">
                     <div class="check-senha">
-                      <input type="checkbox" class="" id="exampleRepeatPassword">
-                      mostrar senha
+                      <input type="checkbox" class="" id="exampleRepeatPassword" onclick="mostarsenha()">
+                      <label for="exampleRepeatPassword">Mostrar senha</label>
                     </div>
                   </div>
+                   -->
                 </div>
                 <button type="submit" class="btn btn-primary btn-user btn-block">
                   Confirmar Alterações
@@ -306,6 +314,18 @@
     </div>
   </div>
 
+  <!-- MOSTRA A SENHA -->
+  <script>
+    function mostarsenha(){
+      var campoSenha = document.getElementById("exampleInputPassword");
+      if(campoSenha.type === "password"){
+        campoSenha.setAttribute("type","text");
+      }else{
+        campoSenha.setAttribute("type","password");
+      }
+    }
+  </script>
+	
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

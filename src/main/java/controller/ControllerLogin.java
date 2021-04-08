@@ -51,6 +51,7 @@ public class ControllerLogin extends HttpServlet {
 		try {
 			//Validando user no BD
 			if(usuario.validarUser()) {
+				usuario.calcularDash();
 				String sessao = usuario.getEmail();
 				request.getSession().setAttribute("sessaoUser", sessao);
 				request.setAttribute("usuario", usuario);

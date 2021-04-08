@@ -52,6 +52,7 @@ public class ControllerDashboard extends HttpServlet {
 		//Validando se a sessao e usuario estão de acordo
 		
 		if(sessao != null && sessao.equals(usuario.getEmail())) {
+			usuario.calcularDash();
 			request.setAttribute("usuario", usuario);
 			RequestDispatcher rd = request.getRequestDispatcher("dashboard.jsp");
 			rd.forward(request, response);

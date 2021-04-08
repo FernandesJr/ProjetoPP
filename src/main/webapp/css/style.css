@@ -5,8 +5,8 @@
 
 .check-senha{
     /*Check box do cadastar ou Update*/
-    position: absolute !important;
-    margin-top: 13px !important;
+    /*position: absolute !important;*/
+    margin-left: 5px !important;
     
 }
 

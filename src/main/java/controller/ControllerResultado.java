@@ -43,6 +43,12 @@ public class ControllerResultado extends HttpServlet {
 		//Validando se a sessao e usuario estão de acordo
 		
 		if(sessao != null && sessao.equals(usuario.getEmail())) {
+			try {
+				usuario.calcularDash();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			request.setAttribute("usuario", usuario);
 			RequestDispatcher rd = request.getRequestDispatcher("resultado.jsp");
 			rd.forward(request, response);
