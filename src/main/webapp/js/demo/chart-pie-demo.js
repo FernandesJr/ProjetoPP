@@ -2,14 +2,27 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
+// Valores vindo do JAVA com informaçoes dos usuários
+
+
+function setValores(a,b){
+  ganhou = Number.parseInt(a);
+  perdeu = Number.parseInt(b);
+}
+
 // Pie Chart Example
 var ctx = document.getElementById("myPieChart");
+var ganhou = Number.parseInt(document.getElementById("ganhou").value);
+var perdeu = Number.parseInt(document.getElementById("perdeu").value);
+
+//ctx.addEventListener("load",setValores(a,b));
+
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Ganhou", "Perdeu"],
+    labels: ["Perdeu", "Ganhou"],
     datasets: [{
-      data: [55, 30],
+      data: [perdeu , ganhou],
       backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",

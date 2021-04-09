@@ -1,3 +1,12 @@
+.cor-perdeu{
+	/*Cor da legenda do gráfico de pizza*/
+    color: #2e59d9;
+}
+
+.nao-aparece{
+	/*Valores do gráfico de pizza*/
+    display: none !important;
+}
 
 .only-print{
     display: none !important;

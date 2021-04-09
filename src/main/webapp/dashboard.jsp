@@ -334,10 +334,10 @@
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Ganhou
+                      <i class="fas fa-circle text-success"></i> Ganhou
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Perdeu
+                      <i class="fas fa-circle cor-perdeu"></i> Perdeu
                     </span>
                   </div>
                 </div>
@@ -390,6 +390,14 @@
       </div>
     </div>
   </div>
+  
+  <!-- Altera os valores de gráfico de pizza -->
+  <p>
+    <input type="number" class="nao-aparece" id="ganhou" value="<%=usuario.getQtAcertos()%>" readonly>
+    <input type="number" class="nao-aparece" id="perdeu" value="<%=usuario.getQtErros()%>" readonly>
+  </p>
+  
+  
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

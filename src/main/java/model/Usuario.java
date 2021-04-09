@@ -20,6 +20,8 @@ public class Usuario {
 	private int porcentGanhos = 0;
 	private String totGanhos = "";
 	private String dayGanhos = "";
+	private int qtAcertos = 0;
+	private int qtErros = 0;
 	
 	
 	public Usuario(){
@@ -106,6 +108,23 @@ public class Usuario {
 
 	public void setDayGanhos(String dayGanhos) {
 		this.dayGanhos = dayGanhos;
+	}
+	
+	
+	public int getQtAcertos() {
+		return qtAcertos;
+	}
+
+	public void setQtAcertos(int qtAcertos) {
+		this.qtAcertos = qtAcertos;
+	}
+
+	public int getQtErros() {
+		return qtErros;
+	}
+
+	public void setQtErros(int qtErros) {
+		this.qtErros = qtErros;
 	}
 
 	public boolean validarUser() throws SQLException {
@@ -202,6 +221,11 @@ public class Usuario {
 		if(totGanhosDay != 0) {
 			this.dayGanhos = moeda.format(totGanhosDay);
 		}
+		
+		//Separando quantidade de apostas certas e erradas
+		this.qtAcertos = contAcertos;
+		this.qtErros = apostas.size() - contAcertos;
+		
 
 	}
 	
