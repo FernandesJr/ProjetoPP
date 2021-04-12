@@ -98,19 +98,9 @@ if (request.getAttribute("msg") != null) {
 				target="">MarcílioGomes</a> &copy;
 		</p>
 	</footer>
-
-
-	<script>
-	    function mostrarsenha(){
-	      var campoSenha = document.getElementById("exampleInputPassword");
-	      if(campoSenha.type === "password"){
-	        campoSenha.setAttribute("type","text");
-	      }else{
-	        campoSenha.setAttribute("type","password");
-	      }
-	    }
-    </script>
-
+	
+	<!-- Script adcionado ao projeto-->
+	<script src="js/script.js"></script>
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

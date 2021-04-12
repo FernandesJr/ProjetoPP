@@ -119,6 +119,7 @@ public class ControllerEditarUser extends HttpServlet {
 		
 		if(usuario.updateUsuario()) {
 			
+			usuario.calcularDash();
 			String msg = "<script>alert('Atualizado com sucesso.')</script>";
 			request.setAttribute("msg", msg);
 			request.setAttribute("usuario", usuario);

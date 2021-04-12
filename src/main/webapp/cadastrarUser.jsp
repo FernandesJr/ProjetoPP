@@ -55,10 +55,12 @@
                     <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha" name="senha" required>
                   </div>
                   <div class="col-sm-6">
-                    <div class="check-senha">
-                      <input type="checkbox" class="" id="exampleRepeatPassword">
-                      mostrar senha
-                    </div>
+					<div class="custom-control custom-checkbox small">
+						<input type="checkbox" class="custom-control-input"
+								id="customCheck" onclick="mostrarsenha()"> <label
+								class="custom-control-label" for="customCheck">
+								Mostrar senha </label>
+					</div>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-user btn-block">
@@ -77,6 +79,9 @@
     </div>
 
   </div>
+  
+  <!-- Script adcionado ao projeto-->
+  <script src="js/script.js"></script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
