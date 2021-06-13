@@ -3,6 +3,11 @@
 /*font-family: 'Chango', cursive;*/
 /*color: rgb(21, 211, 201);*/
 
+
+#id-user{
+	display: none !important;
+}
+
 .check-senha{
     /*Check box do cadastar ou Update*/
     /*position: absolute !important;*/

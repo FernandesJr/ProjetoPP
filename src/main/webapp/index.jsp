@@ -90,7 +90,7 @@ if (request.getAttribute("msg") != null) {
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> 
 	<footer class="footer-pri">
 		<p class="text-center">
 			<a href="https://github.com/fernandesJr" target="_blank">FernandesJúnior</a>

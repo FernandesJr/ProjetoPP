@@ -124,7 +124,6 @@ public class Aposta {
 		default:
 			break;
 		}
-		System.out.println("Você ganhou!!!!! R$" + this.lucroUser);
 	}
 	
 	public int salvarAposta() {

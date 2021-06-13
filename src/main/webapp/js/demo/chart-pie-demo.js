@@ -20,7 +20,7 @@ var perdeu = Number.parseInt(document.getElementById("perdeu").value);
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Perdeu", "Ganhou"],
+    labels: ["PerdeuA", "Ganhou"],
     datasets: [{
       data: [perdeu , ganhou],
       backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],

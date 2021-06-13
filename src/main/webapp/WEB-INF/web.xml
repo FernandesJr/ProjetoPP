@@ -59,4 +59,24 @@
     <servlet-name>ControllerResultado</servlet-name>
     <url-pattern>/ControllerResultado</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControllerCadastrarUser</display-name>
+    <servlet-name>ControllerCadastrarUser</servlet-name>
+    <servlet-class>controller.ControllerCadastrarUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerCadastrarUser</servlet-name>
+    <url-pattern>/ControllerCadastrarUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControllerEditarUser</display-name>
+    <servlet-name>ControllerEditarUser</servlet-name>
+    <servlet-class>controller.ControllerEditarUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerEditarUser</servlet-name>
+    <url-pattern>/ControllerEditarUser</url-pattern>
+  </servlet-mapping>
 </web-app>

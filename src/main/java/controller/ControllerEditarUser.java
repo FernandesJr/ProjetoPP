@@ -128,7 +128,6 @@ public class ControllerEditarUser extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("dashboard.jsp");
 			rd.forward(request, response);
 			
-			System.out.println("Consegui atualizar");
 		}else {
 			
 			String msg = "<script>alert('Email já utilizado por outro usuário. ESCOLHA OUTRO EMAIL')</script>";
