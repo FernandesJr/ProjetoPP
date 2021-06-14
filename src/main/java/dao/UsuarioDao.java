@@ -19,7 +19,7 @@ public class UsuarioDao{
 
 	public UsuarioDao(Usuario usuario) {
 		this.user = usuario;
-		conexao = new Conexao().getConnection();
+		this.conexao = new Conexao().getConnection();
 	}
 	
 	public boolean validarUser() {
